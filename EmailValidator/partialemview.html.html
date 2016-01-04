@@ -1,0 +1,73 @@
+<!---<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <title>Joe's Email Awesome Email Validator</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+
+</head>
+<body>-->
+<form name="form" ng-app>
+    <div class="control-group" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+        <label class="control-label" for= "email" >Your email address</label>
+        <div class="controls">
+            <input type="email" name="email" ng-model="email.text" required />
+            <span class="help-inline" ng-show="submitted && form.email.$error.required">Required</span>
+            <span class="help-inline" ng-show="submitted && form.email.$error.email">Invalid email</span>
+        </div>
+    </div><br/>
+
+    <div class="control-group" ng-class="{true:'error'}[submitted && form.text.$invalid]">
+        <label class="control-label" for = "text" >Subject</label>
+        <div class = "controls">
+        <input type="text" name="text" ng-model="text" required /><br/>
+            <span class="help-inline" ng-show="submitted && form.text.$error.required"> Required</span>
+			<!--<span ng-show=" submitted && form.text.$error.minlength">Minimum 3 characters required for city!</span>	-->	
+            <span class="help-inline" ng-show="submitted && form.text.$error.text">Invalid message</span>
+        </div>
+    </div><br/>
+
+
+    <div class="control-group" ng-class="{true:'error'}[submitted && form.msg.$invalid]">
+        <label class="control-label" for = "text" >Subject</label>
+        <div class = "controls">
+            <textarea type="text" name="msg" class="form-control" rows="20" ng-model="textarea" ng-minlength="3"
+                      ng-maxlength="255" required/></textarea><br/>
+            <span class="help-inline" ng-show="submitted && form.msg.$error.required"> Required</span>
+			<span ng-show=" submitted && form.msg.$error.minlength">You message must be higher than 3<!</span>
+			<span ng-show=" submitted && form.msg.$error.maxlength">You message must be lower than 255<!</span>
+            <span class="help-inline" ng-show="submitted && form.msg.$error.msg">/span>
+        </div>
+    </div><br/>
+
+
+
+
+        <!--<div ng-message="exampleForm.userMessage.$error">
+            <span ng-show="form.userMessage.$error.patter" class="invalidText">Must be the proper
+            email format</span><br/>
+            <div ng-message="required">This field is required</div>
+        </div>
+
+ ng-pattern="/^([aAkKjJQq23456789]{1}|(10){1})$/"
+
+
+        <label>Message Body:</label>
+            <textarea type="text" name="message" class="form-control" rows="20" ng-model="message" ng-minlength="4"
+                    ng-maxlength="255" required></textarea>
+
+            <span ng-show="form.input.$error.model" class="invalidText">Must be the proper
+            email format</span><br/>
+                <!--<div ng-messages="exampleform.message.$error">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="minlength">This message much have over 4 characters</div>
+                    <div ng-message="maxlength">Message must not be over 255 characters</div>
+                    </div>-->
+
+    <button type="submit" class="btn btn-primary btn-large" ng-click="submitted=true">Submit</button>
+</form>
+<!---
+</body>
+
+</html>-->
